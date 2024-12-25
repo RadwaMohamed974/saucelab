@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="saucelab Regression Suite">
+    <parametre name="broswer" value="chrome" ></parametre>
+    <test name="Regression Test" preserve-order="true">
+        <classes>
+            <class name="Tests.UserLoginTest"/>
+            <class name="Tests.AddToCartTest"/>
+            <class name="Tests.CheckoutTest"/>
+            <class name="Tests.BackHomeTest"/>
+
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,12 @@
+{
+  "Login": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+
+  "checkout": {
+    "firstname": "Radwa" ,
+    "lastname": "Mohamed" ,
+    "postalCode": "225"
+  }
+}
