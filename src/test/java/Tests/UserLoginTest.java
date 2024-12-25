@@ -24,8 +24,7 @@ public class UserLoginTest extends TestBase{
        homeObject=new HomePage(driver);
     String username = JsonReader.jsonData("Login","username") ;
     String password = JsonReader.jsonData("Login","password") ;
-       homeObject.Login("standard_user","secret_sauce");
+       homeObject.Login(username,password);
     Assert.assertTrue(homeObject.sucessLogin.getText().equals("Products"));
-    Assert.assertTrue(homeObject.sucessLogin.getText().equals("hfhfhfh"));
     }
 }

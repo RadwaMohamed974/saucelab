@@ -20,26 +20,27 @@ public class CheckoutTest extends TestBase{
         homeObject=new HomePage(driver);
         String username = JsonReader.jsonData("Login","username") ;
         String password = JsonReader.jsonData("Login","password") ;
-        homeObject.Login("standard_user","secret_sauce");
+        homeObject.Login(username,password);
         Assert.assertTrue(homeObject.sucessLogin.getText().equals("Products"));
     }
 
     @Test(priority = 2)
-    public void ProductCanBeAddedToCart() {
+    public void ProductCanBeAddedToCart() throws InterruptedException {
         productsObject = new ProductsPage(driver);
         productsObject.AddProductToCart();
         addToCartObject = new AddToCartPage(driver);
         addToCartObject.OpenAddToCartPage();
         Assert.assertTrue(addToCartObject.productAddedSucessfully.getText().contains("Sauce Labs Backpack"));
+
     }
 @Test(priority = 3)
-        public void UserCanCheckoutSuccessfully() throws IOException, ParseException {
+        public void UserCanCheckoutSuccessfully() throws IOException, ParseException, InterruptedException {
     addToCartObject.OpenCheckoutPage();
  checkoutObject=new CheckoutPage(driver);
     String firstname = JsonReader.jsonData("checkout","firstname") ;
     String lastname = JsonReader.jsonData("checkout","lastname") ;
     String postalcode = JsonReader.jsonData("checkout","postalCode") ;
- checkoutObject.Checkout("jkd","dddd","000");
+ checkoutObject.Checkout(firstname,lastname,postalcode);
  overviewObject=new OverviewPage(driver);
  Assert.assertTrue(overviewObject.completeCheckout.getText().contains("Thank you for your order"));
 
